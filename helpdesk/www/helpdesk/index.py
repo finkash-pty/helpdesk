@@ -1,6 +1,5 @@
 import frappe
 from frappe import _
-from frappe.integrations.frappe_providers.frappecloud_billing import is_fc_site
 from frappe.utils import cint
 from frappe.utils.telemetry import capture
 
@@ -33,7 +32,7 @@ def get_boot():
             "csrf_token": frappe.sessions.get_csrf_token(),
             "favicon": get_favicon(),
             "setup_complete": cint(frappe.get_system_settings("setup_complete")),
-            "is_fc_site": is_fc_site(),
+            "is_fc_site": False,
         }
     )
 
